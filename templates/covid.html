@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid Application Home</title>
+    <style>
+    body {
+    color: black;
+    margin: 18px;
+    text-align:center;
+    background-color: skyblue
+    }
+  </style>
+</head>
+<body>
+<h1> Provide the country name</h1>
+<form action="/" method='post'>
+    <input type="text" name="country" placeholder="Country Name">
+    <button type="submit">Submit</button>
+</form>
+     {% if data.status==200 %}
+        <h3>Confirmed cases in {{country}} is {{data["confirmed"]}} and Death Count is {{data["death"]}}</h3>
+     {% elif data.status == 404 %}
+        <h3>{{data["message"]}}
+        </h3>
+     {% else %}
+     {% endif %}
+</body>
+</html>
